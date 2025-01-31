@@ -1,0 +1,33 @@
+{% extends "layout2.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block header %}
+<form class="container px-4 px-lg-5 text-center">
+<h1 class="mb-1">Pilot LogBook</h1>
+<div style="width: 100%;">
+
+<table class="table-primary">
+    <thead>
+        <tr>
+            <th>Username   </th>
+            <th>Position   </th>
+            <th>Flight hours</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for user in user_data %}
+        <tr>
+            <td>{{ user.username }}</td>
+            <td>{{ user.position }}</td>
+            <td>{{ user.hours }}:{{ user.minutes }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</div>
+</form>
+
+{% endblock %}

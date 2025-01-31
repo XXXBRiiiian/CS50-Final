@@ -1,0 +1,46 @@
+{% extends "layout2.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block header %}
+    <form class="container px-4 px-lg-5 text-center" action="/register" method="post">
+        <div>
+            <h1 class="mb-1">Pilot LogBook</h1>
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="username" placeholder="Username" type="text">
+            <input class="form-control mx-auto w-auto" name="password" placeholder="Password" type="password">
+            <input class="form-control mx-auto w-auto" name="confirmation" placeholder="Confirmation" type="password">
+        </div>
+        <div>
+            <label for="pet-select">Choose a position:</label>
+            <p></p>
+            <input class="form-check-input" type="radio" name="options" id="cap" value = "cap">
+            <label class="form-check-label" for="cap">
+            Captain
+            </label>
+            <input class="form-check-input" type="radio" name="options" id="fo" value = "fo">
+            <label class="form-check-label" for="fo">
+            First Officer
+            </label>
+        </div>
+        <div>
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="ex_hours" placeholder="Current log hours" type="number" min="0" step="1">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="ex_minutes" placeholder="Current log minites" type="number" min="0" step="1">
+        </div>
+        <p></p>
+        <div>
+            <button class="btn btn-primary btn-xl" type="submit" style="text-align:center;vertical-align:middle;">Register</button>
+        </div>
+    </form>
+{% endblock %}
+
+{% if get_flashed_messages() %}
+<header>
+    <form class="container px-4 px-lg-5 text-center">
+    <div class="alert alert-primary mb-0 text-center px-4 px-lg-5" role="alert">
+        {{ get_flashed_messages() | join(" ") }}
+    </div>
+    </form>
+</header>
+{% endif %}

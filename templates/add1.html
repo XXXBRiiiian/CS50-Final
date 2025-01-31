@@ -1,0 +1,62 @@
+{% extends "layout2.html" %}
+
+{% block title %}
+    Add log
+{% endblock %}
+
+{% block header %}
+
+{% from "_field.html" import render_field %}
+<style>
+  .text-center-input {
+    text-align: center;
+  }
+  .text-center-input option {
+    text-align: center;
+  }
+  
+</style>
+
+<form class="container px-4 px-lg-8 text-center" action="/add1" method="post" style="max-width: 300px; margin: auto;">
+  {{ form.hidden_tag() }}
+  <div class="form-group">
+      {{ render_field(form.date, class_="form-control text-center-input") }}
+  </div>
+  <div class="form-group">
+      {{ render_field(form.model, class_="form-control text-center-input") }}
+  </div>
+  <div class="form-group">
+    {{ render_field(form.ident, class_="form-control text-center-input") }}
+  </div>
+  <div class="form-group">
+    {{ render_field(form.ap_from, class_="form-control text-center-input") }}
+  </div>
+  <div class="form-group">
+    {{ render_field(form.ap_to, class_="form-control text-center-input") }}
+  </div>
+  <div class="form-group">
+    {{ render_field(form.hours, class_="form-control text-center-input") }}
+  </div>
+  <div class="form-group">
+    {{ render_field(form.minutes, class_="form-control text-center-input") }}
+  </div>
+  <div class="form-group">
+    {{ render_field(form.night, class_="form-control text-center-input") }}
+  </div>
+  <div class="form-group">
+    {{ render_field(form.land, class_="form-control text-center-input") }}
+  </div>
+  <button type="submit" class="btn btn-primary">Add</button>
+</form>
+
+{% endblock %}
+
+{% if get_flashed_messages() %}
+<header>
+    <form class="container px-4 px-lg-5 text-center">
+    <div class="alert alert-primary mb-0 text-center px-4 px-lg-5" role="alert">
+        {{ get_flashed_messages() | join(" ") }}
+    </div>
+    </form>
+</header>
+{% endif %}

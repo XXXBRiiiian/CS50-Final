@@ -1,0 +1,21 @@
+{% extends "layout2.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block header %}
+
+    <form class="container px-4 px-lg-5 text-center" action="/login" method="post">
+        {{ form.hidden_tag() }}
+        <h1 class="mb-1">Pilot LogBook</h1>
+        <h3 class="mb-5"><em>An Easy To Use Online Pilot LogBook</em></h3>
+        <div class="mb-3">
+            {{ form.username(class="form-control mx-auto w-auto", placeholder="Username") }}
+        </div>
+        <div class="mb-3">
+            {{ form.password(class="form-control mx-auto w-auto", placeholder="Password") }}
+        </div>
+        <button class="btn btn-primary" type="submit">Log In</button>
+    </form>
+{% endblock %}

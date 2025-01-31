@@ -1,0 +1,74 @@
+{% extends "layout2.html" %}
+
+{% block title %}
+    Add log
+{% endblock %}
+
+{% block header %}
+<style type="text/css">
+.tg  {border-collapse:collapse;border-color:#93a1a1;border-spacing:0;margin:0 auto;}
+.tg td{background-color:#fdf6e3;border-color:#93a1a1;border-style:solid;border-width:1px;color:#002b36;
+  font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:10px 0px;word-break:normal;}
+.tg th{background-color:#657b83;border-color:#93a1a1;border-style:solid;border-width:1px;color:#fdf6e3;
+  font-family:Arial, sans-serif;font-size:14px;font-weight:normal;overflow:hidden;padding:10px 0px;word-break:normal;}
+.tg .tg-216s{font-family:Tahoma, Geneva, sans-serif !important;font-weight:bold;text-align:center;vertical-align:middle}
+.tg .tg-el8t{border-color:inherit;font-family:Tahoma, Geneva, sans-serif !important;font-weight:bold;text-align:center;
+  vertical-align:middle}
+</style>
+<form class="container px-4 px-lg-5 text-center" action="/add" method="post">
+    <table class="tg" style="undefined; table-layout: fixed ; width: 808px"><colgroup>
+        <col style="width: 81px">
+        <col style="width: 81px">
+        <col style="width: 80px">
+        <col style="width: 80px">
+        <col style="width: 81px">
+        <col style="width: 81px">
+        <col style="width: 81px">
+        <col style="width: 81px">
+        <col style="width: 81px">
+        <col style="width: 81px">
+        </colgroup>
+        <thead>
+          <tr>
+            <th class="tg-el8t">DATE</th>
+            <th class="tg-el8t">A/C MODEL</th>
+            <th class="tg-216s">A/C IDENT</th>
+            <th class="tg-216s">FROM</th>
+            <th class="tg-216s">TO</th>
+            <th class="tg-216s">TOTAL HOURS</th>
+            <th class="tg-216s">TOTAL MINUTES</th>
+            <th class="tg-216s">NIGHT HOURS</th>
+            <th class="tg-216s">NIGHT MINUTES</th>
+            <th class="tg-216s">LAND</th>
+          </tr></thead>
+        <tbody>
+          <tr>
+            <td class="tg-el8t"><input autocomplete="off" autofocus class="mx-auto w-auto" name="date" type="date"></td>
+            <td class="tg-el8t"><input autocomplete="off" autofocus class="mx-auto w-auto" name="model" type="text"></td>
+            <td class="tg-216s"><input autocomplete="off" autofocus class="mx-auto w-auto" name="ident" type="text"></td>
+            <td class="tg-216s"><input autocomplete="off" autofocus class="mx-auto w-auto" name="ap_from" type="text"></td>
+            <td class="tg-216s"><input autocomplete="off" autofocus class="mx-auto w-auto" name="ap_to" type="text"></td>
+            <td class="tg-216s"><input autocomplete="off" autofocus class="mx-auto w-auto" name="total_hours" type="number" min="0" step="1"></td>
+            <td class="tg-216s"><input autocomplete="off" autofocus class="mx-auto w-auto" name="total_minutes" type="number" min="0" step="1"></td>
+            <td class="tg-216s"><input autocomplete="off" autofocus class="mx-auto w-auto" name="night_hours" type="number" min="0" step="1"></td>
+            <td class="tg-216s"><input autocomplete="off" autofocus class="mx-auto w-auto" name="night_minutes" type="number" min="0" step="1"></td>
+            <td class="tg-216s"><input autocomplete="off" autofocus class="mx-auto w-auto" name="land" type="number" min="0" step="1"></td>
+          </tr>
+        </tbody>
+        </table>
+        <p></p>
+        <div>
+            <button class="btn btn-primary btn-xl" type="submit" style="text-align:center;vertical-align:middle;">Add log</button>
+        </div>
+    </form>
+{% endblock %}
+
+{% if get_flashed_messages() %}
+<header>
+    <form class="container px-4 px-lg-5 text-center">
+    <div class="alert alert-primary mb-0 text-center px-4 px-lg-5" role="alert">
+        {{ get_flashed_messages() | join(" ") }}
+    </div>
+    </form>
+</header>
+{% endif %}

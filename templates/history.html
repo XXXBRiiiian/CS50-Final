@@ -1,0 +1,49 @@
+{% extends "layout2.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block header %}
+<form class="container px-4 px-lg-5 text-center">
+    <h1 class="mb-1">Pilot LogBook</h1>
+    <div style="width: 100%;">
+<table step="0.01" class="table-primary">
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Model</th>
+            <th>Ident</th>
+            <th>From</th>
+            <th>To</th>
+            <th>Hours</th>
+            <th>Minutes</th>
+            <th>Lands</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for flight in data %}
+            <tr>
+                <td>{{ flight.date }}</td>
+                <td>{{ flight.model }}</td>
+                <td>{{ flight.ident }}</td>
+                <td>{{ flight.ap_from }}</td>
+                <td>{{ flight.ap_to }}</td>
+                <td>{{ flight.hours }}</td>
+                <td>{{ flight.minutes }}</td>
+                <td>{{ flight.land }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</div>
+<div>
+    {% if page > 1 %}
+        <a href="{{ url_for('history', page=page-1) }}">Previous</a>
+    {% endif %}
+    {% if page * per_page < total %}
+        <a href="{{ url_for('history', page=page+1) }}">Next</a>
+    {% endif %}
+</div>
+</form>
+{% endblock %}
